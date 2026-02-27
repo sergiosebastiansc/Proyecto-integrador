@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso al Sistema</title>
+    <link rel="stylesheet" href="/asset/css/style.css">
+</head>
+<body>
+    <div class="decor-grid"></div>
+
+    <main>
+        <div class="login-wrapper">
+            <form id="registroForm" class="stratum-card">
+                <div class="card-header">
+                    <span class="data-label">Bienvenido</span>
+                    <div class="status-dot"></div>
+                </div>
+                
+                <h2 class="card-title">Acceder</h2>
+                <p class="card-desc">Introduce tus datos</p>
+
+                <div class="form-group">
+                    <label class="form-label">Correo electrónico</label>
+                    <input type="email" id="correo" class="form-input" placeholder="correo electrónico" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Ejecutar Ingreso</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/acceso.js"></script>
+</body>
+</html>

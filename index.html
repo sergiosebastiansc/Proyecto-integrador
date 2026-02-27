@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkHub Coworking | El Futuro del Trabajo</title>
+    <link rel="stylesheet" href="/asset/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="decor-grid"></div>
+    
+    <!-- HEADER -->
+    <nav>
+        <a href="#" onclick="switchTab('home', event)" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M17 21v-8.5a2.5 2.5 0 0 0-5 0V21"/></svg>
+            WorkHub<span>.Coworking</span>
+        </a>
+        <div class="nav-links">
+            <a href="#" onclick="switchTab('register', event)">REGÍSTRATE</a>
+            <a href="#" onclick="switchTab('booking', event)">RESERVA</a>
+            <a href="#" onclick="switchTab('dashboard', event)">CONTÁCTANOS</a>
+        </div>
+        <div class="nav-links">
+            <a href="#" onclick="switchTab('admin', event)" style="color: white;">ADMIN</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- SECTION: HOME / SPACES -->
+        <div id="home" class="section active">
+            <div class="hero-layout">
+                <div class="hero-content">
+                    <span class="data-label" style="font-size: 0.9rem;">01 // LA NUEVA GEOLOGÍA DEL TRABAJO</span>
+                    <h1>Estructura<br>Cristalina</h1>
+                    <p>Un entorno de espacio de trabajo refinado arquitectónicamente, diseñado alrededor de los principios de transparencia, profundidad y silencio enfocado.</p>
+                    <button class="btn-crystal" onclick="switchTab('booking', event)">
+                        EXPLORAR MÓDULOS 
+                        <span>&rarr;</span>
+                    </button>
+                </div>
+
+                <div class="strata-container">
+                    <div class="stratum stratum-tertiary"></div>
+                    <div class="stratum stratum-secondary"></div>
+                    <div class="stratum stratum-primary">
+                        <span class="data-label">ENTORNO_ACTIVO_04</span>
+                        <ul class="crystalline-list">
+                            <li>
+                                <span class="item-name">Suite de Cuarzo</span>
+                                <span class="item-meta">45.00 N / 120.00 W</span>
+                            </li>
+                            <li>
+                                <span class="item-name">Atrio de Obsidiana</span>
+                                <span class="item-meta">CAPACIDAD: 450</span>
+                            </li>
+                            <li>
+                                <span class="item-name">Núcleo Prisma</span>
+                                <span class="item-meta">Tiempo activo: 99.99%</span>
+                            </li>
+                        </ul>
+                        <div style="margin-top: 4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #475569; letter-spacing: 4px;">
+                            VISUALIZACIÓN DE CAPA STRATA — V.04
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <span class="data-label">02 // ESPACIOS DISPONIBLES</span>
+                <h2>Módulos de Trabajo</h2>
+            </div>
+            <div class="strata-grid" id="spaces-container">
+                <!-- Spaces will be injected here via JS -->
+            </div>
+        </div>
+
+        <!-- SECTION: BOOKING -->
+        <div id="booking" class="section">
+            <div class="section-header">
+                <span class="data-label">02 // MÓDULO DE RESERVA</span>
+                <h2>Configurar Estadía</h2>
+            </div>
+            
+            <div style="max-width: 600px;">
+                <form id="booking-form" onsubmit="handleBooking(event)">
+                    <div class="form-group">
+                        <label class="form-label">Seleccionar Espacio</label>
+                        <select class="form-select" id="space-select" required>
+                            <!-- Options injected via JS -->
+                        </select>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Fecha</label>
+                            <input type="date" class="form-input" id="booking-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Hora</label>
+                            <input type="time" class="form-input" id="booking-time" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Nombre del Usuario</label>
+                        <input type="text" class="form-input" id="user-name" placeholder="Ej. Alex Diseñador" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">CONFIRMAR RESERVA</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SECTION: DASHBOARD / CONTACT -->
+        <div id="dashboard" class="section">
+            <div class="section-header">
+                <span class="data-label">03 // CONTACTO</span>
+                <h2>Ponte en Contacto</h2>
+            </div>
+            
+            <div style="max-width: 600px;">
+                <div class="stratum-card" style="margin-bottom: 2rem;">
+                    <div class="card-header">
+                        <div class="card-icon">✉</div>
+                        <span class="data-label">INFORMACIÓN DE CONTACTO</span>
+                    </div>
+                    <div class="card-title">WorkHub Coworking</div>
+                    <div class="card-desc">Estamos aquí para ayudarte con cualquier pregunta sobre nuestros espacios y servicios.</div>
+                    <div class="card-meta">
+                        <span>📍 Calle Principal 123, Ciudad</span>
+                        <span>📞 +34 900 000 000</span>
+                        <span>✉ hola@workhub.com</span>
+                    </div>
+                </div>
+
+                <form id="contact-form" onsubmit="handleContact(event)">
+                    <div class="form-group">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-input" id="contact-name" placeholder="Tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="contact-email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Mensaje</label>
+                        <textarea class="form-input" id="contact-message" placeholder="¿En qué podemos ayudarte?" rows="5" required style="resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">ENVIAR MENSAJE</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SECTION: REGISTER -->
+        <div id="register" class="section">
+            <div class="section-header">
+                <span class="data-label">04 // CREAR CUENTA</span>
+                <h2>Únete a WorkHub</h2>
+            </div>
+            
+            <div class="register-container">
+                <div class="register-benefits">
+                    <h3>BENEFICIOS DE REGISTRO</h3>
+                    <ul>
+                        <li>Acceso prioritario a reservas de espacios</li>
+                        <li>Descuentos exclusivos en membresías</li>
+                        <li>Gestión de reservas desde tu panel personal</li>
+                        <li>Acceso a eventos de networking</li>
+                        <li>Soporte dedicado 24/7</li>
+                    </ul>
+                </div>
+
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label class="form-label">Nombre</label>
+                            <input type="text" class="form-input" id="reg-firstname" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Apellido</label>
+                            <input type="text" class="form-input" id="reg-lastname" placeholder="Tu apellido" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Número de Teléfono</label>
+                        <input type="tel" class="form-input" id="reg-phone" placeholder="+34 600 000 000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-input" id="reg-email" placeholder="tu@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Empresa u Organización</label>
+                        <input type="text" class="form-input" id="reg-company" placeholder="Nombre de tu empresa o organización">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Contraseña</label>
+                        <input type="password" class="form-input" id="reg-password" placeholder="••••••••" required minlength="8">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Confirmar Contraseña</label>
+                        <input type="password" class="form-input" id="reg-password-confirm" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="btn-primary">CREAR CUENTA</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- SECTION: ADMIN -->
+        <div id="admin" class="section">
+            <div class="section-header">
+                <span class="data-label">05 // GESTIÓN DE DISPONIBILIDAD</span>
+                <h2>Control de Espacios</h2>
+            </div>
+            
+            <div class="strata-grid" id="admin-spaces-container">
+                <!-- Admin controls injected here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">WorkHub<span>.Coworking</span></div>
+                <span class="footer-copyright">© 2024 Todos los derechos reservados</span>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.901 5.998h2.998l-6.52 7.454 7.659 9.548h-6.03l-4.727-5.852-5.408 5.852H3.902l7.02-7.597L3.5 5.998h6.184l4.242 5.27 4.975-5.27z"></path></svg>
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+        <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="status-dot"></span>
+        <span id="toast-message">Operación completada</span>
+    </div>
+    <script src="/js/app.js"></script>
+</body>
+</html>
