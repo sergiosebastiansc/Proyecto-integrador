@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkHub Coworking | El Futuro del Trabajo</title>
-    <link rel="stylesheet" href="/Proyecto-integrador/asset/css/style.css">
+    <link rel="stylesheet" href="/asset/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@300;500;700&display=swap" rel="stylesheet">
@@ -19,18 +19,26 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M17 21v-8.5a2.5 2.5 0 0 0-5 0V21"/></svg>
                 WorkHub<span>.Coworking</span>
             </a>
+
+            <!-- Hamburger button (visible on mobile) -->
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
             <div class="nav-links">
                 <a href="#" onclick="switchTab('register', event)">REGÍSTRATE</a>
                 <a href="#" onclick="switchTab('booking', event)">RESERVA</a>
-                <a href="#" onclick="switchTab('dashboard', event)">CONTÁCTANOS</a>
-            </div>
-            <div class="nav-links">
-                <a href="#" onclick="switchTab('admin', event)" style="color: white;">ADMIN</a>
+                <a href="#" onclick="switchTab('my-bookings', event)">MIS RESERVAS</a>
+                <a href="#" onclick="switchTab('dashboard', event)">CONTACTO</a>
+                <a href="#" onclick="switchTab('admin', event)" style="color: #64748b;">ADMIN</a>
             </div>
         </nav>
     </header>
 
     <main>
+        <!-- HOME -->
         <section id="home" class="section active">
             <div class="hero-layout">
                 <article class="hero-content">
@@ -73,10 +81,10 @@
                 <span class="data-label">02 // ESPACIOS DISPONIBLES</span>
                 <h2>Módulos de Trabajo</h2>
             </header>
-            <div class="strata-grid" id="spaces-container">
-                </div>
+            <div class="strata-grid" id="spaces-container"></div>
         </section>
 
+        <!-- BOOKING -->
         <section id="booking" class="section">
             <header class="section-header">
                 <span class="data-label">02 // MÓDULO DE RESERVA</span>
@@ -88,8 +96,7 @@
                     <fieldset style="border: none; padding: 0; margin: 0;">
                         <div class="form-group">
                             <label for="space-select" class="form-label">Seleccionar Espacio</label>
-                            <select class="form-select" id="space-select" required>
-                                </select>
+                            <select class="form-select" id="space-select" required></select>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
@@ -111,9 +118,34 @@
                         <button type="submit" class="btn-primary">CONFIRMAR RESERVA</button>
                     </fieldset>
                 </form>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <a href="#" onclick="switchTab('my-bookings', event)" style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; text-decoration: none;">
+                        Ver mis reservas &rarr;
+                    </a>
+                </div>
             </div>
         </section>
 
+        <!-- MY BOOKINGS -->
+        <section id="my-bookings" class="section">
+            <header class="section-header">
+                <span class="data-label">02B // GESTIÓN PERSONAL</span>
+                <h2>Mis Reservas</h2>
+            </header>
+
+            <div style="max-width: 800px;">
+                <div id="my-bookings-container"></div>
+
+                <div style="margin-top: 2rem;">
+                    <button class="btn-crystal" onclick="switchTab('booking', event)" style="font-size: 0.75rem; padding: 0.8rem 1.5rem;">
+                        + NUEVA RESERVA <span>&rarr;</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
         <section id="dashboard" class="section">
             <header class="section-header">
                 <span class="data-label">03 // CONTACTO</span>
@@ -128,7 +160,7 @@
                     </div>
                     <h3 class="card-title">WorkHub Coworking</h3>
                     <p class="card-desc">Estamos aquí para ayudarte con cualquier pregunta sobre nuestros espacios y servicios.</p>
-                    <address class="card-meta" style="font-style: normal;">
+                    <address class="card-meta" style="font-style: normal; flex-direction: column; gap: 0.5rem;">
                         <span>📍 Calle Principal 123, Ciudad</span>
                         <span>📞 +34 900 000 000</span>
                         <span>✉ <a href="mailto:hola@workhub.com" style="color: inherit;">hola@workhub.com</a></span>
@@ -153,6 +185,7 @@
             </div>
         </section>
 
+        <!-- REGISTER -->
         <section id="register" class="section">
             <header class="section-header">
                 <span class="data-label">04 // CREAR CUENTA</span>
@@ -172,18 +205,50 @@
                 </aside>
 
                 <form id="register-form" onsubmit="handleRegister(event)">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="reg-firstname" class="form-label">Nombre</label>
+                            <input type="text" class="form-input" id="reg-firstname" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-lastname" class="form-label">Apellido</label>
+                            <input type="text" class="form-input" id="reg-lastname" placeholder="Tu apellido" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-email" class="form-label">Email</label>
+                        <input type="email" class="form-input" id="reg-email" placeholder="tu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-phone" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-input" id="reg-phone" placeholder="+34 600 000 000">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-company" class="form-label">Empresa</label>
+                        <input type="text" class="form-input" id="reg-company" placeholder="Nombre de tu empresa">
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="reg-password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-input" id="reg-password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-password-confirm" class="form-label">Confirmar</label>
+                            <input type="password" class="form-input" id="reg-password-confirm" placeholder="••••••••" required>
+                        </div>
+                    </div>
                     <button type="submit" class="btn-primary">CREAR CUENTA</button>
                 </form>
             </div>
         </section>
 
+        <!-- ADMIN -->
         <section id="admin" class="section">
             <header class="section-header">
                 <span class="data-label">05 // GESTIÓN DE DISPONIBILIDAD</span>
                 <h2>Control de Espacios</h2>
             </header>
-            <div class="strata-grid" id="admin-spaces-container">
-                </div>
+            <div class="strata-grid" id="admin-spaces-container"></div>
         </section>
     </main>
 
@@ -213,6 +278,6 @@
         <span id="toast-message">Operación completada</span>
     </div>
 
-    <script src="/Proyecto-integrador/js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>
