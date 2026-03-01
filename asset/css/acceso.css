@@ -18,27 +18,24 @@ body {
     background-color: var(--bg);
     background-image: var(--prism-glow);
     color: #f8fafc;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', sans-serif; }
     
     /* ESTO ES LO QUE LO BAJA AL CENTRO */
-    margin: 0;
+   .login-wrapper { 
+    margin: auto;
     height: 100vh; /* Altura fija de la pantalla */
     display: flex;
-    flex-direction: column; /* Para que respete el flujo si hay más cosas */
+    position-area: inherit;
+    width: 100%;
+    padding: 20px;
+    
+    flex-direction: row; /* Para que respete el flujo si hay más cosas */
     justify-content: center; /* Centrado vertical */
     align-items: center;     /* Centrado horizontal */
     
     overflow: hidden; /* Evita que salgan barras de scroll raras */
 }
 
-/* Estilo específico para centrar el login */
-.login-wrapper {
-    display: flexbox;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-}
 
 /* Aplicando tus estilos de "stratum-card" al formulario */
 .stratum-card {
@@ -47,7 +44,7 @@ body {
     border-radius: 8px;
     padding: 3rem;
     width: 100%;
-    max-width: 450px;
+    max-width: 500px;
     backdrop-filter: blur(16px);
     transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
