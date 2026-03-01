@@ -1,0 +1,126 @@
+/* --- AQUÍ PEGAS TODO EL :root Y LOS ESTILOS QUE ME PASASTE --- */
+:root {
+    --bg: #020617;
+    --surface: #0f172a;
+    --crystal-1: rgba(255, 255, 255, 0.03);
+    --crystal-2: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.12);
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.5);
+    --success: #10b981;
+    --danger: #ef4444;
+    --prism-glow: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 70%);
+    --noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Reutilizo tus estilos de body y fondo */
+body {
+    background-color: var(--bg);
+    background-image: var(--prism-glow);
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    
+    /* ESTO ES LO QUE LO BAJA AL CENTRO */
+    margin: 0;
+    height: 100vh; /* Altura fija de la pantalla */
+    display: flex;
+    flex-direction: column; /* Para que respete el flujo si hay más cosas */
+    justify-content: center; /* Centrado vertical */
+    align-items: center;     /* Centrado horizontal */
+    
+    overflow: hidden; /* Evita que salgan barras de scroll raras */
+}
+
+/* Estilo específico para centrar el login */
+.login-wrapper {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+/* Aplicando tus estilos de "stratum-card" al formulario */
+.stratum-card {
+    background: var(--crystal-1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 450px;
+    backdrop-filter: blur(16px);
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.stratum-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--accent);
+    background: var(--crystal-2);
+    box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* --- AQUÍ PEGAS TUS ESTILOS DE FORM-GROUP, INPUT Y BUTTON QUE ME PASASTE --- */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.form-input {
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    color: white;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    clip-path: polygon(0 0, 100% 0, 98% 100%, 2% 100%);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    transform: translateX(5px);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+}
+
+.login-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+main, .login-container, .login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
