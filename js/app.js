@@ -1,10 +1,10 @@
         // --- DATA STATE ---
-        const spaces = [
-            { id: 1, name: "Suite de Cuarzo", type: "Oficina Privada", capacity: 4, price: "$45/hr", available: true, desc: "Suite privada con paredes de vidrio acústico." },
-            { id: 2, name: "Atrio de Obsidiana", type: "Sala de Reuniones", capacity: 12, price: "$80/hr", available: true, desc: "Sala de conferencias principal con tecnología 4K." },
-            { id: 3, name: "Núcleo Prisma", type: "Escritorio Abierto", capacity: 1, price: "$15/hr", available: true, desc: "Escritorio abierto en zona de alta luminosidad." },
-            { id: 4, name: "Laboratorio Neón", type: "Estudio Creativo", capacity: 6, price: "$60/hr", available: false, desc: "Espacio para prototipado y diseño creativo." }
-        ];
+       const spaces = [
+    { id: 1, name: "Suite de Cuarzo", type: "Oficina Privada", capacity: 4, price: "$45/hr", available: true, desc: "Suite privada con paredes de vidrio acústico.", image: "https://i.pinimg.com/736x/90/a8/9e/90a89e3f99c17873590a8236034247cb.jpg" },
+    { id: 2, name: "Atrio de Obsidiana", type: "Sala de Reuniones", capacity: 12, price: "$80/hr", available: true, desc: "Sala de conferencias principal con tecnología 4K.", image: "https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { id: 3, name: "Núcleo Prisma", type: "Escritorio Abierto", capacity: 1, price: "$15/hr", available: true, desc: "Escritorio abierto en zona de alta luminosidad.", image: "https://plus.unsplash.com/premium_photo-1661962361446-f450f3f21495?q=80&w=1372&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+    { id: 4, name: "Laboratorio Neón", type: "Estudio Creativo", capacity: 6, price: "$60/hr", available: false, desc: "Espacio para prototipado y diseño creativo.", image: "https://media.istockphoto.com/id/1257975650/photo/modern-home-office-interior.jpg?s=612x612&w=0&k=20&c=ZztiG2rvoPSysDiomgZEOkftHGSN3HibCkzBEJ4E38U=" }
+];
 
         let bookings = [];
         let registeredUsers = [];
@@ -75,19 +75,20 @@
                 card.className = `stratum-card ${!space.available ? 'unavailable' : ''}`;
                 card.style.animationDelay = `${index * 0.1}s`;
                 card.innerHTML = `
-                    <div class="card-header">
-                        <div class="card-icon">◈</div>
-                        <span style="font-family: 'JetBrains Mono'; font-size: 0.7rem; color: ${space.available ? 'var(--success)' : 'var(--danger)'}">
-                            ${space.available ? 'DISPONIBLE' : 'OCUPADO'}
-                        </span>
-                    </div>
-                    <div class="card-title">${space.name}</div>
-                    <div class="card-desc">${space.desc}</div>
-                    <div class="card-meta">
-                        <span>CAP: ${space.capacity}</span>
-                        <span>${space.price}</span>
-                    </div>
-                `;
+                <img src="${space.image}" alt="${space.name}" style="width: 100%; height: 150px; object-fit: cover; object-position: center; border-radius: 4px; margin-bottom: 10px;">
+    <div class="card-header">
+        <div class="card-icon">◈</div>
+        <span style="font-family: 'JetBrains Mono'; font-size: 0.7rem; color: ${space.available ? 'var(--success)' : 'var(--danger)'}">
+            ${space.available ? 'DISPONIBLE' : 'OCUPADO'}
+        </span>
+    </div>
+    <div class="card-title">${space.name}</div>
+    <div class="card-desc">${space.desc}</div>
+    <div class="card-meta">
+        <span>CAP: ${space.capacity}</span>
+        <span>${space.price}</span>
+    </div>
+`;
                 container.appendChild(card);
             });
         }
