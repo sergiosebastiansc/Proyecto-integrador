@@ -221,3 +221,5 @@
                 showToast(space.available ? 'Disponibilidad de espacio activada' : 'Espacio marcado como ocupado', 'success');
             }
         }
+
+        
