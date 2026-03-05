@@ -298,6 +298,7 @@
             cursor: pointer;
             backdrop-filter: blur(16px);
         }
+     
 
         .stratum-card::after {
             content: "";
@@ -314,12 +315,19 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .stratum-card.unavailable {
-            opacity: 0.5;
-            pointer-events: none;
-            border-color: var(--danger);
-        }
+       .stratum-card.unavailable {
+    opacity: 0.5;
+    pointer-events: none;
+    border-color: var(--danger);
+}
 
+.stratum-card img {
+    
+    position: relative;
+    z-index: 2;
+    
+    width: calc(100% + 4rem);
+}
         .card-header {
             display: flex;
             justify-content: space-between;
