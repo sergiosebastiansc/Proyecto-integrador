@@ -511,3 +511,55 @@
             .stratum-card { padding: 1.2rem; }
             footer { padding: 1rem; }
         }
+
+ /* === AISLAR BOOTSTRAP SOLO AL NAV === */
+
+#mainNavWrapper {
+    position: relative;
+    z-index: 1000;
+}
+
+#mainNav {
+    background: transparent !important;
+    padding: 1rem 2rem;
+}
+
+/* Evita que bootstrap cambie tus links globales */
+#mainNav .nav-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e2e8f0;
+}
+
+#mainNav .nav-link:hover {
+    color: var(--accent);
+}
+
+/* Icono hamburguesa blanco */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ===== Carrusel ===== */
+
+#envCarousel {
+    width: 100%;
+}
+
+#envCarousel .carousel-inner {
+    width: 100%;
+}
+
+#envCarousel img {
+    width: 100%;
+    height: 320px; 
+    object-fit: cover;
+    object-position: center;
+    border-radius: 12px;
+}
