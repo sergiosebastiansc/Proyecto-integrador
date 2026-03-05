@@ -49,17 +49,6 @@
         .logo:hover { color: var(--accent); }
         .logo span { color: var(--accent); }
 
-        .nav-links { display: flex; gap: 3rem; flex-wrap: wrap; }
-
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
-        }
        
         /* LAYOUT */
         main {
@@ -86,18 +75,22 @@
 
         .hero-content { animation: slideUp 1s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
 
-        .hero-content h1 {
-            font-size: clamp(3rem, 8vw, 9rem);
-            font-weight: 900;
-            line-height: 0.85;
-            letter-spacing: -0.04em;
-            margin-bottom: 2rem;
-            background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.2) 100%);
-                background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-                color: tansparent;
-        }
+       .hero-content h1 {
+    font-size: clamp(3rem, 8vw, 9rem);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+
+    background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.2) 100%);
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: transparent; 
+}
 
         .hero-content p {
             max-width: 450px;
@@ -169,85 +162,15 @@
             cursor: pointer;
             backdrop-filter: blur(16px);
         }
-     
+        .stratum-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%); pointer-events: none; }
+        .stratum-card:hover { transform: translateY(-10px) translateZ(20px); border-color: rgba(59, 130, 246, 0.4); background: var(--crystal-2); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+        .stratum-card.unavailable { opacity: 0.5; pointer-events: none; border-color: var(--danger); }
 
-        .stratum-card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .stratum-card:hover {
-            transform: translateY(-10px) translateZ(20px);
-            border-color: rgba(59, 130, 246, 0.4);
-            background: var(--crystal-2);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-       .stratum-card.unavailable {
-    opacity: 0.5;
-    pointer-events: none;
-    border-color: var(--danger);
-}
-
-.stratum-card img {
-    
-    position: relative;
-    z-index: 2;
-    
-    width: calc(100% + 4rem);
-}
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-icon {
-            font-size: 1.5rem;
-            color: var(--accent);
-        }
-
-        .card-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-desc {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: #64748b;
-            border-top: 1px solid var(--border);
-            padding-top: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Forms */
-        .form-group {
-            margin-bottom: 1.5rem;
-            animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-            opacity: 0;
-        }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; position: relative; z-index: 1; flex-wrap: wrap; gap: 0.5rem; }
+        .card-icon { font-size: 1.5rem; color: var(--accent); }
+        .card-title { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; position: relative; z-index: 1; }
+        .card-desc { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem; position: relative; z-index: 1; }
+        .card-meta { display: flex; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #64748b; border-top: 1px solid var(--border); padding-top: 1rem; position: relative; z-index: 1; flex-wrap: wrap; }
 
         /* FORMS */
         .form-group { margin-bottom: 1.5rem; animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; opacity: 0; }
@@ -307,13 +230,21 @@
 
         /* SECTION HEADERS */
         .section-header { padding: 4rem 0; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
-        .section-header h2 {
-            font-size: clamp(2.5rem, 5vw, 5rem);
-            font-weight: 900; line-height: 1; letter-spacing: -0.05em;
-            background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+       .section-header h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.05em;
 
+    background: linear-gradient(180deg, #fff 30%, rgba(255,255,255,0.4) 100%);
+
+    background-clip: text;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: transparent;
+}
         .status-dot { width: 10px; height: 10px; background-color: var(--success); border-radius: 50%; display: inline-block; box-shadow: 0 0 10px var(--success); margin-right: 8px; animation: pulse 2s infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
@@ -409,7 +340,6 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            
             main { padding: 0 2rem 2rem 2rem; }
             footer { padding: 2rem; }
             .footer-content { flex-direction: column; text-align: center; align-items: center; }
@@ -418,20 +348,18 @@
             .nav-links { gap: 1.5rem; }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 768px) {        
             .nav-links a { font-size: 0.85rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
             .nav-links a:last-child { border-bottom: none; }
             #mainNav{ padding: 1.5rem 2rem;}
-            main { padding: 0 1.5rem 2rem 1.5rem; }rem 0; border-bottom: 1px solid var(--border); }
-            .nav-links a:last-child { border-bottom: none; }
-
             main { padding: 0 1.5rem 2rem 1.5rem; }
             .section-header { padding: 2.5rem 0; }
             .hero-layout { padding-top: 1rem; gap: 2rem; min-height: auto; }
             .hero-content p { font-size: 1rem; }
-            .strata-container { height: 280px; }
+            .strata-container { height: 320px; }
             .strata-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .stratum-card { padding: 1.5rem; }  .stratum-primary{
+            .stratum-card { padding: 1.5rem; }
+            .stratum-primary{
                 padding: 1rem;
             }
             #envCarousel img{
@@ -462,23 +390,23 @@
         }
 
         @media (max-width: 480px) {
-          
             main { padding: 0 1rem 1.5rem 1rem; }
             .hero-content h1 { font-size: clamp(2rem, 14vw, 4rem); }
-            .strata-container { height: 200px; }
+            .strata-container { height: 260px; }
             .stratum-primary { padding: 1rem; }
             .crystalline-list .item-name { font-size: 0.95rem; }
             .section-header h2 { font-size: clamp(1.8rem, 10vw, 3rem); }
             .btn-crystal { padding: 0.8rem 1.5rem; font-size: 0.75rem; }
             .stratum-card { padding: 1.2rem; }
             footer { padding: 1rem; }
-         #envCarousel img{
+            #envCarousel img{
                 height: 200px;
             }
             #mainNav{ padding: 1rem;}
         }
 
- /* === AISLAR BOOTSTRAP SOLO AL NAV === */
+
+        /* === AISLAR BOOTSTRAP SOLO AL NAV === */
 
 #mainNavWrapper {
     position: relative;
