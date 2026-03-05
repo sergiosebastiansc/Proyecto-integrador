@@ -74,31 +74,33 @@ function showToast(message, type = 'success') {
     setTimeout(() => toast.classList.remove('show'), 3500);
 }
 
-// --- RENDER SPACES ---
-function renderSpaces() {
-    const container = document.getElementById('spaces-container');
-    container.innerHTML = '';
-    spaces.forEach((space, index) => {
-        const card = document.createElement('div');
-        card.className = `stratum-card ${!space.available ? 'unavailable' : ''}`;
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.innerHTML = `
-            <div class="card-header">
-                <div class="card-icon">◈</div>
-                <span style="font-family: 'JetBrains Mono'; font-size: 0.7rem; color: ${space.available ? 'var(--success)' : 'var(--danger)'}">
-                    ${space.available ? 'DISPONIBLE' : 'OCUPADO'}
-                </span>
-            </div>
-            <div class="card-title">${space.name}</div>
-            <div class="card-desc">${space.desc}</div>
-            <div class="card-meta">
-                <span>CAP: ${space.capacity}</span>
-                <span>${space.price}</span>
-            </div>
-        `;
-        container.appendChild(card);
-    });
-}
+        // --- RENDER FUNCTIONS ---
+        function renderSpaces() {
+            const container = document.getElementById('spaces-container');
+            container.innerHTML = '';
+
+            spaces.forEach((space, index) => {
+                const card = document.createElement('div');
+                card.className = `stratum-card ${!space.available ? 'unavailable' : ''}`;
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.innerHTML = `
+                <img src="${space.image}" alt="${space.name}" style="width: 100%; height: 150px; object-fit: cover; object-position: center; border-radius: 4px; margin-bottom: 10px;">
+    <div class="card-header">
+        <div class="card-icon">◈</div>
+        <span style="font-family: 'JetBrains Mono'; font-size: 0.7rem; color: ${space.available ? 'var(--success)' : 'var(--danger)'}">
+            ${space.available ? 'DISPONIBLE' : 'OCUPADO'}
+        </span>
+    </div>
+    <div class="card-title">${space.name}</div>
+    <div class="card-desc">${space.desc}</div>
+    <div class="card-meta">
+        <span>CAP: ${space.capacity}</span>
+        <span>${space.price}</span>
+    </div>
+`;
+                container.appendChild(card);
+            });
+        }
 
 function populateSelect() {
     const select = document.getElementById('space-select');
@@ -214,79 +216,15 @@ function cancelBooking(bookingId, btn) {
     // Animate out
     card.classList.add('cancelling');
 
-    setTimeout(() => {
-        bookings = bookings.filter(b => b.id !== bookingId);
-        renderMyBookings();
-        showToast('Reserva cancelada correctamente', 'error');
-    }, 500);
-}
+        function toggleAvailability(id) {
+            const space = spaces.find(s => s.id === id);
+            if (space) {
+                space.available = !space.available;
+                renderSpaces();
+                renderAdminSpaces();
+                populateSelect();
+                showToast(space.available ? 'Disponibilidad de espacio activada' : 'Espacio marcado como ocupado', 'success');
+            }
+        }
 
-// --- ACTIONS ---
-function handleBooking(e) {
-    e.preventDefault();
-
-    const spaceId = document.getElementById('space-select').value;
-    const date = document.getElementById('booking-date').value;
-    const time = document.getElementById('booking-time').value;
-    const user = document.getElementById('user-name').value;
-
-    const booking = {
-        id: 'BK-' + Date.now().toString(36).toUpperCase(),
-        spaceId,
-        date,
-        time,
-        user,
-        createdAt: new Date().toISOString()
-    };
-
-    bookings.push(booking);
-    e.target.reset();
-    showToast(`Reserva confirmada para ${user}`, 'success');
-}
-
-function handleContact(e) {
-    e.preventDefault();
-    const name = document.getElementById('contact-name').value;
-    e.target.reset();
-    showToast(`Gracias ${name}, te contactaremos pronto`, 'success');
-}
-
-function handleRegister(e) {
-    e.preventDefault();
-
-    const firstname = document.getElementById('reg-firstname').value;
-    const lastname = document.getElementById('reg-lastname').value;
-    const phone = document.getElementById('reg-phone').value;
-    const email = document.getElementById('reg-email').value;
-    const company = document.getElementById('reg-company').value;
-    const password = document.getElementById('reg-password').value;
-    const passwordConfirm = document.getElementById('reg-password-confirm').value;
-
-    if (password !== passwordConfirm) {
-        showToast('Las contraseñas no coinciden', 'error');
-        return;
-    }
-
-    const existingUser = registeredUsers.find(u => u.email === email);
-    if (existingUser) {
-        showToast('Este correo ya está registrado', 'error');
-        return;
-    }
-
-    registeredUsers.push({ firstname, lastname, phone, email, company, password, registeredAt: new Date().toISOString() });
-    e.target.reset();
-    showToast(`¡Bienvenido ${firstname}! Tu cuenta ha sido creada`, 'success');
-
-    setTimeout(() => switchTab('home', null), 2000);
-}
-
-function toggleAvailability(id) {
-    const space = spaces.find(s => s.id === id);
-    if (space) {
-        space.available = !space.available;
-        renderSpaces();
-        renderAdminSpaces();
-        populateSelect();
-        showToast(space.available ? 'Disponibilidad activada' : 'Espacio marcado como ocupado', 'success');
-    }
-}
+        

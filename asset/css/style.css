@@ -197,15 +197,85 @@
             cursor: pointer;
             backdrop-filter: blur(16px);
         }
-        .stratum-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%); pointer-events: none; }
-        .stratum-card:hover { transform: translateY(-10px) translateZ(20px); border-color: rgba(59, 130, 246, 0.4); background: var(--crystal-2); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
-        .stratum-card.unavailable { opacity: 0.5; pointer-events: none; border-color: var(--danger); }
+     
 
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; position: relative; z-index: 1; flex-wrap: wrap; gap: 0.5rem; }
-        .card-icon { font-size: 1.5rem; color: var(--accent); }
-        .card-title { font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; position: relative; z-index: 1; }
-        .card-desc { color: #94a3b8; font-size: 0.9rem; margin-bottom: 1.5rem; position: relative; z-index: 1; }
-        .card-meta { display: flex; gap: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #64748b; border-top: 1px solid var(--border); padding-top: 1rem; position: relative; z-index: 1; flex-wrap: wrap; }
+        .stratum-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .stratum-card:hover {
+            transform: translateY(-10px) translateZ(20px);
+            border-color: rgba(59, 130, 246, 0.4);
+            background: var(--crystal-2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+       .stratum-card.unavailable {
+    opacity: 0.5;
+    pointer-events: none;
+    border-color: var(--danger);
+}
+
+.stratum-card img {
+    
+    position: relative;
+    z-index: 2;
+    
+    width: calc(100% + 4rem);
+}
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        .card-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-desc {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: #64748b;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+            animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            opacity: 0;
+        }
 
         /* FORMS */
         .form-group { margin-bottom: 1.5rem; animation: slideUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; opacity: 0; }
