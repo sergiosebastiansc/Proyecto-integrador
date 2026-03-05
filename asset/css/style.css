@@ -510,6 +510,10 @@
             .btn-crystal { padding: 0.8rem 1.5rem; font-size: 0.75rem; }
             .stratum-card { padding: 1.2rem; }
             footer { padding: 1rem; }
+         #envCarousel img{
+                height: 200px;
+            }
+            #mainNav{ padding: 1rem;}
         }
 
  /* === AISLAR BOOTSTRAP SOLO AL NAV === */
