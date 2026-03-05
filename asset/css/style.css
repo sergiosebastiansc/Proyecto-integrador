@@ -409,7 +409,7 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            nav { padding: 1.5rem 2rem; }
+            
             main { padding: 0 2rem 2rem 2rem; }
             footer { padding: 2rem; }
             .footer-content { flex-direction: column; text-align: center; align-items: center; }
@@ -419,26 +419,10 @@
         }
 
         @media (max-width: 768px) {
-            nav { padding: 1rem 1.5rem; }
-
-            .nav-toggle { display: flex; }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(15, 23, 42, 0.98);
-                border-bottom: 1px solid var(--border);
-                padding: 1.5rem;
-                flex-direction: column;
-                gap: 0;
-                z-index: 200;
-                backdrop-filter: blur(20px);
-            }
-            .nav-links.open { display: flex; }
             .nav-links a { font-size: 0.85rem; padding: 0.8rem 0; border-bottom: 1px solid var(--border); }
+            .nav-links a:last-child { border-bottom: none; }
+            #mainNav{ padding: 1.5rem 2rem;}
+            main { padding: 0 1.5rem 2rem 1.5rem; }rem 0; border-bottom: 1px solid var(--border); }
             .nav-links a:last-child { border-bottom: none; }
 
             main { padding: 0 1.5rem 2rem 1.5rem; }
@@ -447,7 +431,13 @@
             .hero-content p { font-size: 1rem; }
             .strata-container { height: 280px; }
             .strata-grid { grid-template-columns: 1fr; gap: 1rem; }
-            .stratum-card { padding: 1.5rem; }
+            .stratum-card { padding: 1.5rem; }  .stratum-primary{
+                padding: 1rem;
+            }
+            #envCarousel img{
+                border-radius: 8px;
+                height: 240px;
+            }
 
             /* Collapse 2-col form grid */
             [style*="grid-template-columns: 1fr 1fr"] {
@@ -472,7 +462,7 @@
         }
 
         @media (max-width: 480px) {
-            nav { padding: 1rem; }
+          
             main { padding: 0 1rem 1.5rem 1rem; }
             .hero-content h1 { font-size: clamp(2rem, 14vw, 4rem); }
             .strata-container { height: 200px; }
