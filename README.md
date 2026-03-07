@@ -305,7 +305,7 @@ Durante el proyecto se utilizaron funciones como:
 Estas permiten **generar contenido dinámico sin backend**.
 
 ---
-<a name="diseno-y-ux"></a>
+<a name="Diseño-y-ux"></a>
 # 🎨 Diseño y UX
 
 El diseño del proyecto incluye:
@@ -385,3 +385,4 @@ Este proyecto fue posible gracias al esfuerzo y dedicación de:
 ## 📄 Licencia
 
 Este proyecto es de código abierto. Fue desarrollado con fines educativos en el marco de un bootcamp de desarrollo Fullstack JavaScript.    Siéntase libre de explorarlo, clonarlo y proponer mejoras en su ejecución
+
