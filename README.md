@@ -320,7 +320,7 @@ El diseño del proyecto incluye:
 El objetivo fue crear una **experiencia visual moderna y clara para el usuario**.
 
 ---
-<a name="como-ejecutar-el-proyecto"></a>
+<a name="cómo-ejecutar-el-proyecto"></a>
 
 # ▶ Cómo ejecutar el proyecto
 
@@ -385,4 +385,5 @@ Este proyecto fue posible gracias al esfuerzo y dedicación de:
 ## 📄 Licencia
 
 Este proyecto es de código abierto. Fue desarrollado con fines educativos en el marco de un bootcamp de desarrollo Fullstack JavaScript.    Siéntase libre de explorarlo, clonarlo y proponer mejoras en su ejecución
+
 
