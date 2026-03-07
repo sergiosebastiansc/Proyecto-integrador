@@ -29,6 +29,7 @@ El sistema permite visualizar espacios de coworking, gestionar reservas y simula
 * [Autores](#autores)
 
 ---
+<a name="contexto-del-Proyecto"></a>
 
 # 🧠 Contexto del Proyecto
 
@@ -43,25 +44,29 @@ Actualmente las reservas se gestionan mediante:
 
 Esto genera problemas como:
 
-* duplicación de reservas
-* mala gestión de horarios
-* dificultad para escalar el servicio
-* pérdida de información
+* Duplicación de reservas
+* Mala gestión de horarios
+* Dificultad para escalar el servicio
+* Pérdida de información
 
 Por esta razón se plantea el desarrollo de un **sistema web que centralice la gestión de reservas**.
 
 En esta primera fase se desarrolla un **MVP (Minimum Viable Product)** en frontend.
 
 ---
+<a name="vista-previa"></a>
+---
+<a name="objetivo-del-proyecto"></a>
 
 # 🎯 Objetivo del Proyecto
 
+
 Construir una **aplicación web estática** que permita:
 
-✔ visualizar espacios de coworking
-✔ reservar espacios de trabajo
-✔ gestionar reservas creadas
-✔ simular disponibilidad de espacios
+✔ Visualizar espacios de coworking
+✔ Reservar espacios de trabajo
+✔ Gestionar reservas creadas
+✔ Simular disponibilidad de espacios
 
 Utilizando:
 
@@ -72,6 +77,7 @@ Utilizando:
 
 🔗 *Repositorio oficial:* [https://github.com/sergiosebastiansc/Proyecto-integrador](https://github.com/sergiosebastiansc/Proyecto-integrador)
 ---
+<a name="tecnologías-utilizadas"></a>
 
 # 🧰 Tecnologías Utilizadas
 
@@ -89,6 +95,7 @@ Fuentes utilizadas:
 * **JetBrains Mono**
 
 ---
+<a name="arquitectura-del-proyecto"></a>
 
 # 🏗 Arquitectura del Proyecto
 
@@ -118,6 +125,7 @@ let bookings = []
 ```
 
 ---
+<a name="estructura-de-carpetas"></a>
 
 # 📂 Estructura de Carpetas
 
@@ -150,6 +158,7 @@ Descripción:
 | acceso.js     | manejo del formulario de login |
 
 ---
+<a name="funcionalidades-implementadas"></a>
 
 # ⚙ Funcionalidades Implementadas
 
@@ -157,14 +166,15 @@ Descripción:
 
 Incluye:
 
-* navbar de navegación
-* hero section
-* carrusel de imágenes
-* listado de espacios disponibles
+* Navbar de navegación
+* Hero section
+* Carrusel de imágenes
+* Listado de espacios disponibles
 
 Los espacios se muestran mediante **cards dinámicas generadas con JavaScript**.
 
 ---
+<a name="panel-de-adminitracion"></a>
 
 # 🏢 Visualización de Espacios
 
@@ -176,11 +186,11 @@ renderSpaces()
 
 Cada espacio muestra:
 
-* nombre
-* tipo de espacio
-* capacidad
-* precio
-* estado de disponibilidad
+* Nombre
+* Tipo de espacio
+* Capacidad
+* Precio
+* Estado de disponibilidad
 
 ---
 
@@ -190,10 +200,10 @@ Formulario de reserva con selección de fecha y hora, garantizando disponibilida
 
 Campos disponibles:
 
-* nombre del usuario
-* espacio a reservar
-* fecha
-* hora
+* Nombre del usuario
+* Espacio a reservar
+* Fecha
+* Hora
 
 Evento utilizado:
 
@@ -204,11 +214,11 @@ document.getElementById("booking-form")
 
 Al enviar el formulario:
 
-1. se captura el evento
-2. se crea un objeto reserva
-3. se guarda en el array de reservas
-4. se muestra confirmación
-5. se limpia el formulario
+1. Se captura el evento
+2. Se crea un objeto reserva
+3. Se guarda en el array de reservas
+4. Se muestra confirmación
+5. Se limpia el formulario
 
 ---
 
@@ -217,8 +227,8 @@ Sistema de liberación inmediata de espacios para mantener la disponibilidad act
 
 Los usuarios pueden:
 
-* ver sus reservas
-* cancelar reservas existentes
+* Ver sus reservas
+* Cancelar reservas existentes
 
 Las reservas se muestran dinámicamente en el DOM.
 
@@ -245,8 +255,8 @@ Herramientas de gestión para administradores, permitiendo visualizar la ocupaci
 
 Permite:
 
-* visualizar espacios
-* activar o desactivar disponibilidad
+* Visualizar espacios
+* Activar o desactivar disponibilidad
 
 Esto se controla mediante un **toggle switch**.
 
@@ -255,6 +265,7 @@ toggleAvailability(id)
 ```
 
 ---
+<a name="componentes-bootstrap-utilizados"></a>
 
 # 🧩 Componentes Bootstrap Utilizados
 
@@ -278,6 +289,7 @@ col
 ```
 
 ---
+<a name="manipulación-del-dom"></a>
 
 # 🧠 Manipulación del DOM
 
@@ -293,21 +305,22 @@ Durante el proyecto se utilizaron funciones como:
 Estas permiten **generar contenido dinámico sin backend**.
 
 ---
-
+<a name="diseno-y-ux"></a>
 # 🎨 Diseño y UX
 
 El diseño del proyecto incluye:
 
-* interfaz moderna tipo dashboard
-* animaciones CSS
-* efectos glassmorphism
-* sistema de notificaciones toast
-* layout responsive
-* tipografía profesional
+* Interfaz moderna tipo dashboard
+* Animaciones CSS
+* Efectos glassmorphism
+* Sistema de notificaciones toast
+* Layout responsive
+* Tipografía profesional
 
 El objetivo fue crear una **experiencia visual moderna y clara para el usuario**.
 
 ---
+<a name="como-ejecutar-el-proyecto"></a>
 
 # ▶ Cómo ejecutar el proyecto
 
@@ -329,47 +342,46 @@ index.html
 ```
 
 ---
+<a name="estado-del-proyecto"></a>
 
 # 📌 Estado del Proyecto
 
 ✔ MVP funcional completado
-✔ interfaz responsive
-✔ sistema de reservas simulado
+✔ Interfaz responsive
+✔ Sistema de reservas simulado
 
 Actualmente el sistema **no utiliza backend ni base de datos**.
 
 ---
+<a name="mejoras-futuras"></a>
 
 # 🚧 Mejoras Futuras
 
 En próximas iteraciones se planea implementar:
 
-* backend con Node.js
-* base de datos
-* autenticación de usuarios
+* Backend con Node.js
+* Base de datos
+* Autenticación de usuarios
 * API REST
-* persistencia de reservas
-* panel administrativo avanzado
-* despliegue en la nube
+* Persistencia de reservas
+* Panel administrativo avanzado
+* Despliegue en la nube
 
 ---
-
+<a name="autores"></a>
 # 👩‍💻 Autores
 
 Este proyecto fue posible gracias al esfuerzo y dedicación de:
 
-* **Gloria Cornelio**
-* **Rodrigo Contreras**
-* **Sergio Salinas**
-* **Mauricio Diaz**
-* **Valentina Medina**
-* **Marcelo Martinez**
+* **Gloria Cornelio** | Frontend |
+* **Rodrigo Contreras** | Frontend |
+* **Sergio Salinas** | Frontend |
+* **Mauricio Diaz** | Frontend |
+* **Valentina Medina** | Frontend |
+* **Marcelo Martinez** | Frontend |
 
 
 ---
-
 ## 📄 Licencia
 
 Este proyecto es de código abierto. Fue desarrollado con fines educativos en el marco de un bootcamp de desarrollo Fullstack JavaScript.    Siéntase libre de explorarlo, clonarlo y proponer mejoras en su ejecución
-
-
